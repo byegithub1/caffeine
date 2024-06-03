@@ -18,19 +18,19 @@ import { hello_middleware } from './middlewares/hello.ts'
 const routes: { [key: string]: RouteIFC } = {
 	home: {
 		methods: {
-			get: ['/', [], (ctx) => ctx.response.body = { caffeine: `home("Uncomplicate JavaScript")` }],
+			get: ['/v0', [], (ctx) => ctx.response.body = { caffeine: `home("Uncomplicate JavaScript")` }],
 		},
 	},
 	hello: {
 		methods: {
-			get: ['/hello', [hello_middleware], hello],
+			get: ['/v0/hello', [hello_middleware], hello],
 		},
 	},
 	notFound: {
 		methods: {
-			all: ['/:notFound*', [(ctx) => {
+			all: ['/v0/:notFound*', [(ctx) => {
 				ctx.response.status = 404
-				ctx.response.body = { caffeine: 'notFound(404 Not Found)' }
+				ctx.response.body = { caffeine: 'notFound("404 Not Found")' }
 			}]],
 		},
 	},

@@ -1,7 +1,7 @@
 import { Server as Websocket, Socket } from '@socket'
 
 const server: Websocket = new Websocket({
-	path: '/socket',
+	path: '/',
 	cors: {
 		origin: /^.+localhost:(7952|3000)$/,
 		credentials: true,
